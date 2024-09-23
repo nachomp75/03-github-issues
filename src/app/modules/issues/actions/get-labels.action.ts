@@ -1,13 +1,10 @@
-import { sleep } from '@helpers/index';
-import { GitHubLabel } from '../interfaces';
 import { environment } from 'src/environments/environment.development';
+import { GitHubLabel } from '../interfaces';
 
 const BASE_URL = environment.baseUrl;
 const GITHUB_TOKEN = environment.githubToken;
 
 export const getLabels = async (): Promise<GitHubLabel[]> => {
-  await sleep(500);
-
   try {
     const res = await fetch(`${BASE_URL}/labels`, {
       headers: {
